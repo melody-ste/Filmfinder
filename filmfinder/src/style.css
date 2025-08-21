@@ -8,3 +8,8 @@ h1 {
   line-height: 1.1;
 }
 
+.movie-poster {
+  max-width: 100px;
+  margin-right: 15px;
+  border-radius: 8px;
+}
