@@ -27,6 +27,21 @@ form.addEventListener("submit", async (e) => {
 
 
 // AFFICHAGE
+function observeMovies() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".movie-card").forEach(card => {
+    observer.observe(card);
+  });
+}
+
 function displayMovies(movies) {
   resultsContainer.innerHTML = "";
 
@@ -54,6 +69,7 @@ function displayMovies(movies) {
 
     resultsContainer.appendChild(div);
   });
+  observeMovies();
 }
 
 
