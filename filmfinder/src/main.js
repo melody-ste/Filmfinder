@@ -40,10 +40,16 @@ function displayMovies(movies) {
     div.classList.add("movie-card", "mb-3", "p-3", "border", "rounded");
 
     div.innerHTML = `
-      <img src="${movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/150"}" alt="${movie.Title}" style="max-width:150px;" />
-      <h3>${movie.Title}</h3>
-      <p>Released: ${movie.Year}</p>
-      <button class="btn btn-primary readMore" data-id="${movie.imdbID}">Read More</button>
+      <div class="d-flex align-items-start">
+        <img src="${movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/150"}" 
+            alt="${movie.Title}" 
+            style="max-width:150px; margin-right: 15px; border-radius:8px;" />
+        <div>
+          <h3>${movie.Title}</h3>
+          <p>${movie.Year}</p>
+          <button class="btn btn-primary readMore" data-id="${movie.imdbID}">Read More</button>
+        </div>
+      </div>
     `;
 
     resultsContainer.appendChild(div);
